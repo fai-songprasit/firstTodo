@@ -52,7 +52,7 @@ export const showError = (errorMessage) => {
 
 export function fetchTasks () {
     return (dispatch) => {
-      dispatch(requestTasks())
+      dispatch(requestTasks()) // put loading acreen here
       return request
         .get(`/api/v1/todos`)
         .then(res => {

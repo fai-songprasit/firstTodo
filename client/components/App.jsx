@@ -8,38 +8,10 @@ import { fetchTasks } from '../actions'
 
 class App extends React.Component {
 
-  state = {
-    tasks: []
-  }
-
   componentDidMount() {
     console.log('component did mount')
     getTasks()
-      .then(task => {
-        this.setState({
-          tasks: task,
-        })
-      })
       this.props.dispatch(fetchTasks())
-  }
-
-  //need input field and submit button 'ADD' inside the container div
-
-  //need to move to forms
-  updateTodos = () => {
-    getTasks()
-      .then(task => {
-        this.setState({
-          tasks: task,
-        })
-      })
-  }
-
-  //need to move to forms
-  removeTodos = task => {
-    deleteTask(task)
-    .then(tasks => 
-    this.setState({tasks}))
   }
 
   render() {
@@ -48,21 +20,29 @@ class App extends React.Component {
       <div className="app">
         <div className="todo-list">
           <h1>Todos</h1>
-          {this.state.tasks.map(todos => {
-            return <Todos key={todos.id} data={todos} removeTodos={this.removeTodos} updateTodos={this.updateTodos}/>
-          })}
+            <div className="header">
+              <div className="header">
+                  <p>Task:</p>
+              </div>
+              <div className="header">
+                  <p>Priority:</p>
+              </div>
+              <div className="header">
+                  <p>Completed:</p>
+              </div>
+            </div>
+            <Update/>
         </div>
         <div className="form">
           <Add/>
-        </div>
-        <div>
-          <Update/>
         </div>
       </div>
     )
   }
 }
 
+const mapStateToProps = (globalState) => ({
+  tasks: globalState.tasks
+})
 
-
-export default connect()(App)
+export default connect(mapStateToProps)(App)

@@ -1,4 +1,5 @@
 import React from 'react'
+import Todos from './Todos'
 import {connect} from 'react-redux'
 import { updateTask } from '../apis/todos'
 
@@ -7,6 +8,21 @@ import { updateTask } from '../apis/todos'
 class Update extends React.Component {
     state = {
         clicked: false
+    }
+
+    updateTodos = () => {
+        getTasks()
+        .then(task => {
+            this.setState({
+                tasks: task,
+            })
+        })
+    }
+
+    removeTodos = task => {
+        deleteTask(task)
+        .then(tasks => 
+            this.setState({tasks}))
     }
 
     handleSubmit = event => {
@@ -37,10 +53,12 @@ class Update extends React.Component {
     }
 
     render() {
-        console.log(this.props.store)
+        console.log(this.props.tasks)
         return (
             <div>
-                <p>Need to make redux work, create reducers, routes etc.</p>
+                {this.props.tasks.map(todos => {
+                    return <Todos key={todos.id} data={todos} removeTodos={this.removeTodos} updateTodos={this.updateTodos}/>
+                })}
             </div>
         )
     }

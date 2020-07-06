@@ -34,7 +34,7 @@ h1 {
 
 .todo-list span{
   display: flex;
-  width: 110px;
+  width: 140px;
   justify-content: space-evenly;
 }
 
@@ -82,4 +82,16 @@ form button:hover {
 form input, 
 form button {
   height: 3rem;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin: -10px -20px 0 -2px;
+}
+
+.header p {
+  display: flex;
+  width: 100px;
 }
