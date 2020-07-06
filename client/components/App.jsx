@@ -1,6 +1,7 @@
 import React from 'react'
 import Todos from './Todos'
 import Add from './Add'
+import Update from './Update'
 import { getTasks, deleteTask } from '../apis/todos'
 
 class App extends React.Component {
@@ -50,6 +51,9 @@ class App extends React.Component {
         </div>
         <div className="form">
           <Add/>
+        </div>
+        <div>
+          <Update/>
         </div>
       </div>
     )
