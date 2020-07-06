@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-
-// import stuff from './stuff'
+import errorMessage from './error-message'
+import tasks from './tasks'
 
 export default combineReducers({
-  // stuff
+  errorMessage,
+  tasks,
 })
