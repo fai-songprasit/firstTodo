@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import { updateTask } from '../apis/todos'
 
 //need to adjust this to check which widget matches task name and change just the one
@@ -36,6 +37,7 @@ class Update extends React.Component {
     }
 
     render() {
+        console.log(this.props.store)
         return (
             <div>
                 <p>Need to make redux work, create reducers, routes etc.</p>
@@ -44,4 +46,8 @@ class Update extends React.Component {
     }
 }
 
-export default Update
+const mapStateToProps = globalState => ({
+    tasks: globalState.tasks
+})
+
+export default connect(mapStateToProps)(Update)

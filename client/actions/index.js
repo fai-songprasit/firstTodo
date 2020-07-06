@@ -2,9 +2,9 @@ import request from 'superagent'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const GET_TASKS = 'GET_TASKS'
-export const ADD_TASKS = 'ADD_TASKS'
-export const UPDATE_TASKS = 'UPDATE_TASKS'
-export const DELETE_TASKS = 'DELETE_TASKS'
+export const ADD_TASK = 'ADD_TASKS'
+export const UPDATE_TASK = 'UPDATE_TASKS'
+export const DELETE_TASK = 'DELETE_TASKS'
 export const REQUEST_TASKS = 'REQUEST_TASKS'
 
 import { getTasks } from '../apis/todos'
@@ -31,7 +31,7 @@ export function addTask(task) {
 
 export const updateTasks = (task) => {
     return {
-      type: UPDATE_TASKS,
+      type: UPDATE_TASK,
       tasks: task
     }
 }
@@ -52,11 +52,11 @@ export const showError = (errorMessage) => {
 
 export function fetchTasks () {
     return (dispatch) => {
-      dispatch(receiveTasks())
+      dispatch(requestTasks())
       return request
         .get(`/api/v1/todos`)
         .then(res => {
-          dispatch(getTasks(res.body))
+          dispatch(receiveTasks(res.body))
         })
         .catch(err => {
           dispatch(showError(err.message))

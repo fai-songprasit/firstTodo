@@ -2,7 +2,9 @@ import React from 'react'
 import Todos from './Todos'
 import Add from './Add'
 import Update from './Update'
+import {connect} from 'react-redux'
 import { getTasks, deleteTask } from '../apis/todos'
+import { fetchTasks } from '../actions'
 
 class App extends React.Component {
 
@@ -18,6 +20,7 @@ class App extends React.Component {
           tasks: task,
         })
       })
+      this.props.dispatch(fetchTasks())
   }
 
   //need input field and submit button 'ADD' inside the container div
@@ -61,4 +64,5 @@ class App extends React.Component {
 }
 
 
-export default App
+
+export default connect()(App)

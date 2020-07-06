@@ -5,7 +5,7 @@ const initialState = []
 function tasks (state = initialState, action) {
   switch (action.type) {
     case GET_TASKS:
-      return action.task
+      return action.tasks
     case ADD_TASK:
         return [...state, action.task]
     case UPDATE_TASK:
