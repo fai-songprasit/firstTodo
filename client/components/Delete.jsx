@@ -1,15 +1,18 @@
   import React from 'react'
+  import {connect} from 'react-redux'
+  import { deleteTasks } from '../actions'
 
 function Delete (props) {
-    function handleSubmit() {
-        props.removeWidget(props.id)
+    function handleClick() {
+        props.dispatch(deleteTasks(props.id))
     }
 
     return (
         <>
-            <button onClick={handleSubmit}>Delete</button>
+            <button onClick={handleClick}>Delete</button>
         </>
     )
     
 }
-export default Delete
+
+export default connect()(Delete)

@@ -3,7 +3,7 @@ import List from './List'
 import Add from './Add'
 
 import {connect} from 'react-redux'
-import { getTasks, deleteTask } from '../apis/todos'
+import { getTasks } from '../apis/todos'
 import { fetchTasks } from '../actions'
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
     console.log('render')
     return (
       <div className="app">
-        <List/>
+        <List tasks={this.props}/>
         <div className="form">
           <Add/>
         </div>

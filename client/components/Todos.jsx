@@ -1,23 +1,20 @@
 import React from 'react'
+import Delete from './Delete'
+import Update from './Update'
 
 class Todos extends React.Component {
     state = {
-        id: ''
+        id: '',
+        clicked: false
     }
 
-        // updateTodos = () => {
+    // updateTodos = () => {
     //     getTasks()
         // .then(task => {
         //     this.setState({
         //         tasks: task,
         //     })
         // })
-    // }
-
-    // removeTodos = task => {
-    //     deleteTask(task)
-        // .then(tasks => 
-        //     this.setState({tasks}))
     // }
 
     // handleSubmit = event => {
@@ -39,11 +36,13 @@ class Todos extends React.Component {
         console.log(e.currentTarget.id)
         if (this.state.id == "") {
             this.setState({
-                id: e.currentTarget.id
+                id: e.currentTarget.id,
+                clicked: true
             })
         } else {
             this.setState ({
-                id: ''
+                id: '',
+                clicked: false
             })
         }
     }
@@ -55,17 +54,26 @@ class Todos extends React.Component {
         const upperCaseTask = task.charAt(0).toUpperCase() + task.slice(1)
 
         return (
-            <li id={this.props.data.id} onClick={this.handleClick}>
-                <span>
-                    {upperCaseTask}
-                </span>
-                <span>
-                    {priority}
-                </span>
-                <span>
-                    {status}
-                </span>
-            </li>
+            <>
+                <li id={this.props.data.id} onClick={this.handleClick}>
+                    <span>
+                        {upperCaseTask}
+                    </span>
+                    <span>
+                        {priority}
+                    </span>
+                    <span>
+                        {status}
+                    </span>
+                </li>
+                {this.state.clicked ? 
+                    <div>
+                        <Delete id={this.state.id}/>
+                        <Update id={this.state.id} task={this.props.task}/>
+                    </div>
+                    : null
+                }
+            </>
         )
     }
 }

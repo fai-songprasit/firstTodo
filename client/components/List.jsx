@@ -1,7 +1,8 @@
 import React from 'react'
-import Update from './Update'
+import Todos from './Todos'
+import {connect} from 'react-redux'
 
-const List = () => {
+const List = (props) => {
     return (
         <div className="todo-list">
             <h1>Todos</h1>
@@ -16,9 +17,18 @@ const List = () => {
                         <p>Completed:</p>
                     </div>
                 </div>
-            <Update/>
+                <ul>
+                    {props.tasks.map(todos => {
+                        return (
+                            <Todos key={todos.id} data={todos}/>
+                        )
+                    })}
+                </ul>
         </div>
     )
 }
 
-export default List
+const mapStateToProps = globalState => ({
+    tasks: globalState.tasks
+})
+export default connect(mapStateToProps)(List)
