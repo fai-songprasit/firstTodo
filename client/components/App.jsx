@@ -37,7 +37,7 @@ class App extends React.Component {
       <button className="button" onClick={this.handleClick}>Create</button>
       {this.state.clicked &&
         <div className="form">
-          <Add/>
+          <Add clicked={this.state}/>
         </div>
       }
       </div>

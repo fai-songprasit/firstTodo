@@ -16,12 +16,13 @@ router.get('/', (req, res) => {
 router.post('/', (req,res) => {
     const task = req.body
     db.saveTask(task)
-      .then(() => {
-        return db.getTasks()
+      .then((id) => {
+        res.send({id: id[0]})
+        // return db.getTasks()
       })
-      .then(task => {
-        res.send(task)
-      })
+      // .then(task => {
+      //   res.send(task)
+      // })
 })
 
 router.put('/:id', (req,res) => {

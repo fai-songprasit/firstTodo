@@ -16,16 +16,12 @@ class Add extends React.Component {
     }
 
     handleSubmit = (e) => {
-        console.log(this.state)
         e.preventDefault()
         this.props.dispatch(addTask(this.state))
     }
 
     handleClick = (e) => {
-        console.log(this.props)
-        this.props.setState({
-            clicked: false
-        })
+        this.props.clicked.clicked = false
     }
 
     render () {
@@ -54,8 +50,4 @@ class Add extends React.Component {
     }
 }
 
-const mapStateToProps = (globalState) => ({
-    clicked: globalState.clicked
-  })
-  
-  export default connect(mapStateToProps)(Add)
+export default connect()(Add)

@@ -23,21 +23,12 @@ export const receiveTasks = (task) => {
 export function addTask(task) {
   return (dispatch) => {
     saveTask(task)
-    .then(() => {
+    .then((id) => {
+      task.id = id.id // remeber this
       dispatch({
         type: ADD_TASK,
         task: task
         })
-    .then(() => {
-      return request
-        .then(res => {
-          console.log(res)
-          dispatch(getTask(res.body))
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      })
     })
   }
 }
