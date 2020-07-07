@@ -1,7 +1,7 @@
 import React from 'react'
-import Todos from './Todos'
+import List from './List'
 import Add from './Add'
-import Update from './Update'
+
 import {connect} from 'react-redux'
 import { getTasks, deleteTask } from '../apis/todos'
 import { fetchTasks } from '../actions'
@@ -18,21 +18,7 @@ class App extends React.Component {
     console.log('render')
     return (
       <div className="app">
-        <div className="todo-list">
-          <h1>Todos</h1>
-            <div className="header">
-              <div className="header">
-                  <p>Task:</p>
-              </div>
-              <div className="header">
-                  <p>Priority:</p>
-              </div>
-              <div className="header">
-                  <p>Completed:</p>
-              </div>
-            </div>
-            <Update/>
-        </div>
+        <List/>
         <div className="form">
           <Add/>
         </div>

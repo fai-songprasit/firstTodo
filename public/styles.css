@@ -36,6 +36,7 @@ h1 {
   display: flex;
   width: 140px;
   justify-content: space-evenly;
+  z-index: 1;
 }
 
 .todo-list li {
