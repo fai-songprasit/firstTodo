@@ -7,6 +7,9 @@ import { getTasks } from '../apis/todos'
 import { fetchTasks } from '../actions'
 
 class App extends React.Component {
+  state = {
+    clicked: false
+  }
 
   componentDidMount() {
     console.log('component did mount')
@@ -14,21 +17,36 @@ class App extends React.Component {
       this.props.dispatch(fetchTasks())
   }
 
+  handleClick = (e) => {
+    if (this.state.clicked == true) {
+      this.setState ({
+        clicked: false
+      })
+    } else {
+      this.setState ({
+        clicked: true
+      })
+    }
+  }
+
   render() {
     console.log('render')
     return (
       <div className="app">
         <List tasks={this.props}/>
+      <button className="button" onClick={this.handleClick}>Create</button>
+      {this.state.clicked &&
         <div className="form">
           <Add/>
         </div>
+      }
       </div>
     )
   }
 }
 
 const mapStateToProps = (globalState) => ({
-  tasks: globalState.tasks
+  tasks: globalState.tasks,
 })
 
 export default connect(mapStateToProps)(App)

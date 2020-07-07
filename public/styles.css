@@ -141,3 +141,15 @@ form button {
   position: relative;
   left: 250px
 }
+
+.button {
+  color: #f7f1f1;
+  background: #ff6666;
+  border: 2px solid rgba(255,255,255,.3);
+  cursor: pointer;
+  transition: .2s ease-out;
+  width: 100px;
+  padding: 10px;
+  text-transform: uppercase;
+  margin-top: 15px
+}

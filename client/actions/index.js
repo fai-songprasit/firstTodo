@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { getTasks, deleteTask, updateTask, saveTask } from '../apis/todos'
+import { getTask, deleteTask, updateTask, saveTask } from '../apis/todos'
 
 export const GET_TASKS = 'GET_TASKS'
 export const ADD_TASK = 'ADD_TASK'
@@ -23,10 +23,20 @@ export const receiveTasks = (task) => {
 export function addTask(task) {
   return (dispatch) => {
     saveTask(task)
-    .then(() => { //need to use singular get task here
+    .then(() => {
       dispatch({
         type: ADD_TASK,
         task: task
+        })
+    .then(() => {
+      return request
+        .then(res => {
+          console.log(res)
+          dispatch(getTask(res.body))
+        })
+        .catch(err => {
+          console.log(err)
+        })
       })
     })
   }

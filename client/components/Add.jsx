@@ -21,6 +21,13 @@ class Add extends React.Component {
         this.props.dispatch(addTask(this.state))
     }
 
+    handleClick = (e) => {
+        console.log(this.props)
+        this.props.setState({
+            clicked: false
+        })
+    }
+
     render () {
         return (
             <>
@@ -40,11 +47,15 @@ class Add extends React.Component {
                         <input type="text" name="completed" placeholder="yes/no" value={this.state.completed} onChange={this.handleChange}/>
                     </div>
                     
-                    <button type="submit">ADD</button>
+                    <button type="submit" onClick={this.handleClick}>ADD</button>
                 </form>
             </>
         )
     }
 }
 
-export default connect()(Add)
+const mapStateToProps = (globalState) => ({
+    clicked: globalState.clicked
+  })
+  
+  export default connect(mapStateToProps)(Add)

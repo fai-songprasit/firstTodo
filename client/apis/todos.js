@@ -12,6 +12,13 @@ export function getTasks () {
     .then(response => response.body)
 }
 
+export function getTask (task) {
+  return request
+    .get(todosUrl)
+    .send(task)
+    .then(response => response.body)
+}
+
 export function saveTask(todos) {
   return request
     .post(todosUrl)
