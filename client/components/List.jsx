@@ -20,7 +20,7 @@ const List = (props) => {
                 <ul>
                     {props.tasks.map(todos => {
                         return (
-                            <Todos key={todos.id} data={todos}/>
+                            todos && <Todos key={todos.id} data={todos}/>
                         )
                     })}
                 </ul>

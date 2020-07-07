@@ -4,7 +4,6 @@ import { addTask } from '../actions'
 
 class Add extends React.Component {
     state = {
-        id: '', //need to find a way to get id to update state
         task: '',
         priority: '',
         completed: '',

@@ -33,7 +33,6 @@ router.put('/:id', (req,res) => {
         return db.getTask(id)
       })
       .then(task => {
-        console.log(task)
         res.json(task)
       })
 })

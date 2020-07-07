@@ -23,10 +23,10 @@ export const receiveTasks = (task) => {
 export function addTask(task) {
   return (dispatch) => {
     saveTask(task)
-    .then(() => {
+    .then(() => { //need to use singular get task here
       dispatch({
         type: ADD_TASK,
-        tasks: task
+        task: task
       })
     })
   }
