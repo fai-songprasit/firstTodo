@@ -101,3 +101,20 @@ form button {
   display: flex;
   width: 100px;
 }
+
+.button {
+  padding:0 1.3rem;
+  color: #f7f1f1;
+  background: #ff6666;
+  border: 2px solid rgba(255,255,255,.3);
+  cursor: pointer;
+  transition: .2s ease-out;
+  width: 100px;
+  padding: 10px;
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+.flex {
+  display: flex;
+}

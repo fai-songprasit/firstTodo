@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { deleteTask } from '../apis/todos'
+import { deleteTask, updateTask } from '../apis/todos'
 
 export const GET_TASKS = 'GET_TASKS'
 export const ADD_TASK = 'ADD_TASKS'
@@ -28,12 +28,16 @@ export function addTask(task) {
   }
 
 export const updateTasks = (task) => {
+  console.log(task)
   return (dispatch) => {
+    console.log(task)
     updateTask(task)
     .then(() => {
       dispatch({
         type: UPDATE_TASK,
-        tasks: task
+        tasks: task,
+        pirority: priority,
+        completed: completed
       }) 
     })
   }

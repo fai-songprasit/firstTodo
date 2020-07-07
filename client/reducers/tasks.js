@@ -11,7 +11,7 @@ function tasks (state = initialState, action) {
     case UPDATE_TASK:
       return state.map((task) => {
         if (task.id == action.tasks) {
-          return action.tasks
+          return action.newTask
         } else {
           return task
         }

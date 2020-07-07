@@ -8,9 +8,9 @@ function Delete (props) {
     }
 
     return (
-        <>
-            <button onClick={handleClick}>Delete</button>
-        </>
+        <div>
+            <button className="button" onClick={handleClick}>Delete</button>
+        </div>
     )
     
 }

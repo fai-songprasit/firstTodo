@@ -8,30 +8,6 @@ class Todos extends React.Component {
         clicked: false
     }
 
-    // updateTodos = () => {
-    //     getTasks()
-        // .then(task => {
-        //     this.setState({
-        //         tasks: task,
-        //     })
-        // })
-    // }
-
-    // handleSubmit = event => {
-    //     event.preventDefault()
-        // const task = this.state
-        // updateTask(task, this.props.id)
-        // .then(() => {
-        // this.props.updateTask()
-        // })
-    // }
-
-    // handleChange = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value,
-    //     })
-    // }
-
     handleClick = (e) => {
         console.log(e.currentTarget.id)
         if (this.state.id == "") {
@@ -67,7 +43,7 @@ class Todos extends React.Component {
                     </span>
                 </li>
                 {this.state.clicked ? 
-                    <div>
+                    <div className="flex">
                         <Delete id={this.state.id}/>
                         <Update id={this.state.id} task={this.props.task}/>
                     </div>
