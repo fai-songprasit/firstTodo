@@ -22,7 +22,7 @@ function saveTask(task, db = connection) {
     })
 }
 
-function updateTask(id, task, db = connection) {
+function updateTask(task, id, db = connection) {
     return db('todos')
     .where('id', id)
     .update(task)

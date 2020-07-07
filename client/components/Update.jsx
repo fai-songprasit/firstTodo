@@ -4,9 +4,10 @@ import { updateTasks } from '../actions'
 
 class Update extends React.Component { 
     state = {
-        task: '',
-        priority: '',
-        completed: '',
+        id: this.props.task.id,
+        task: this.props.task.task,
+        priority: this.props.task.priority,
+        completed: this.props.task.completed,
     }
 
     handleChange = (e) => {
@@ -16,8 +17,9 @@ class Update extends React.Component {
     }
 
     handleSubmit = (e) => {
+        console.log(this.state)
         e.preventDefault()
-        this.props.dispatch(updateTasks(this.state, this.props.id))
+        this.props.dispatch(updateTasks(this.state, this.props.task.id))
     }
 
     render() {
@@ -25,17 +27,17 @@ class Update extends React.Component {
             <form className="form left_input" onSubmit={this.handleSubmit}>
                 <div>
                     <label>Task:</label>
-                    <input type="text" name="task" value={this.props.name} onChange={this.handleChange}/>
+                    <input type="text" name="task" value={this.state.task} onChange={this.handleChange}/>
                 </div>
                 
                 <div>
                     <label>Priority:</label>
-                    <input type="text" name="priority" value={this.props.priority} onChange={this.handleChange}/>
+                    <input type="text" name="priority" value={this.state.priority} onChange={this.handleChange}/>
                 </div>
                 
                 <div>
                     <label>Completed:</label>
-                    <input type="text" name="completed" value={this.props.completed} onChange={this.handleChange}/>
+                    <input type="text" name="completed" value={this.state.completed} onChange={this.handleChange}/>
                 </div>
 
                 <button className="update">Update</button>

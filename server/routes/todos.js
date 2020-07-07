@@ -16,36 +16,37 @@ router.get('/', (req, res) => {
 router.post('/', (req,res) => {
     const task = req.body
     db.saveTask(task)
-        .then(() => {
+      .then(() => {
         return db.getTasks()
-        })
-        .then(task => {
+      })
+      .then(task => {
         res.send(task)
-        })
+      })
 })
 
 router.put('/:id', (req,res) => {
     const task = req.body
     const id = req.params.id
-    console.log(id, task)
-    db.updateTask(id, task)
-        .then(() => {
+    db.updateTask(task, id)
+      .then(() => {
+        console.log(id)
         return db.getTask(id)
-        })
-        .then(task => {
+      })
+      .then(task => {
+        console.log(task)
         res.json(task)
-        })
+      })
 })
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id
     db.deleteTask(id)
-        .then(() => {
+      .then(() => {
         return db.getTask(id)
-        })
-        .then(task => {
+      })
+      .then(task => {
         res.json(task)
-        })
+      })
 })
   
   module.exports = router

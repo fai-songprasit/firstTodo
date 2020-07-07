@@ -10,8 +10,9 @@ function tasks (state = initialState, action) {
       return [...state, action.task]
     case UPDATE_TASK:
       return state.map((task) => {
-        if (task.id == action.tasks) {
-          return action.newTask
+        console.log(state)
+        if (task.id == action.id) {
+          return action.task
         } else {
           return task
         }

@@ -3,7 +3,7 @@ import { deleteTask, updateTask } from '../apis/todos'
 
 export const GET_TASKS = 'GET_TASKS'
 export const ADD_TASK = 'ADD_TASKS'
-export const UPDATE_TASK = 'UPDATE_TASKS'
+export const UPDATE_TASK = 'UPDATE_TASK'
 export const DELETE_TASKS = 'DELETE_TASKS'
 export const REQUEST_TASKS = 'REQUEST_TASKS'
 
@@ -27,18 +27,18 @@ export function addTask(task) {
     }
   }
 
-export const updateTasks = (task) => {
+export const updateTasks = (task, id) => {
   console.log(task)
   return (dispatch) => {
     console.log(task)
-    updateTask(task)
+    updateTask(task, id)
     .then(() => {
+      // task.id = id -> only need this here if state doesnt declare id as it will be missing from db when updated
       dispatch({
         type: UPDATE_TASK,
-        tasks: task,
-        pirority: priority,
-        completed: completed
-      }) 
+        id: id,
+        task: task,
+      })
     })
   }
 }
