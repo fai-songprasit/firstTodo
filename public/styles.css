@@ -102,8 +102,34 @@ form button {
   width: 100px;
 }
 
-.button {
-  padding:0 1.3rem;
+.flex {
+  display: flex;
+}
+
+.left_input {
+  margin-left: -40px;
+}
+
+.delete {
+  color: #f7f1f1;
+  background: #ff6666;
+  border: 2px solid rgba(255,255,255,.3);
+  cursor: pointer;
+  transition: .2s ease-out;
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  text-transform: uppercase;
+  margin: 5px;
+  position: relative;
+  top: 67px;
+}
+
+.delete:hover {
+  background: rgba(255,255,255,0.1);
+} 
+
+.update {
   color: #f7f1f1;
   background: #ff6666;
   border: 2px solid rgba(255,255,255,.3);
@@ -112,9 +138,6 @@ form button {
   width: 100px;
   padding: 10px;
   text-transform: uppercase;
-  margin: 5px;
-}
-
-.flex {
-  display: flex;
+  position: relative;
+  left: 250px
 }

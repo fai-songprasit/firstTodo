@@ -9,7 +9,7 @@ function Delete (props) {
 
     return (
         <div>
-            <button className="button" onClick={handleClick}>Delete</button>
+            <button className="delete" onClick={handleClick}>Delete</button>
         </div>
     )
     

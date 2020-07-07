@@ -44,8 +44,8 @@ class Todos extends React.Component {
                 </li>
                 {this.state.clicked ? 
                     <div className="flex">
-                        <Delete id={this.state.id}/>
                         <Update id={this.state.id} task={this.props.task}/>
+                        <Delete id={this.state.id}/>
                     </div>
                     : null
                 }

@@ -22,7 +22,7 @@ class Update extends React.Component {
 
     render() {
         return (
-            <form className="form" onSubmit={this.handleSubmit}>
+            <form className="form left_input" onSubmit={this.handleSubmit}>
                 <div>
                     <label>Task:</label>
                     <input type="text" name="task" value={this.props.name} onChange={this.handleChange}/>
@@ -38,7 +38,7 @@ class Update extends React.Component {
                     <input type="text" name="completed" value={this.props.completed} onChange={this.handleChange}/>
                 </div>
 
-                <button className="button">Update</button>
+                <button className="update">Update</button>
             </form>
         )
     }
