@@ -1,24 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addTask } from '../actions'
 
 class Add extends React.Component {
     state = {
+        id: '', //need to find a way to get id to update state
         task: '',
         priority: '',
         completed: '',
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault()
-        saveTask(this.state)
-        .then(newTask => {
-          this.props.saveTask(newTask)
-        })
     }
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
         })
+    }
+
+    handleSubmit = (e) => {
+        console.log(this.state)
+        e.preventDefault()
+        this.props.dispatch(addTask(this.state))
     }
 
     render () {
@@ -47,4 +48,4 @@ class Add extends React.Component {
     }
 }
 
-export default Add
+export default connect()(Add)

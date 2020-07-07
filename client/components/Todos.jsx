@@ -9,7 +9,6 @@ class Todos extends React.Component {
     }
 
     handleClick = (e) => {
-        console.log(e.currentTarget.id)
         if (this.state.id == "") {
             this.setState({
                 id: e.currentTarget.id,

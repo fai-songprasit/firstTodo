@@ -17,7 +17,6 @@ class Update extends React.Component {
     }
 
     handleSubmit = (e) => {
-        console.log(this.state)
         e.preventDefault()
         this.props.dispatch(updateTasks(this.state, this.props.task.id))
     }

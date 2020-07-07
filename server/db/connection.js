@@ -16,7 +16,7 @@ function getTask(id, db = connection) {
 function saveTask(task, db = connection) {
     return db('todos')
     .insert({
-        task: todos.task,
+        task: task.task,
         priority: task.priority,
         completed: task.completed,
     })
