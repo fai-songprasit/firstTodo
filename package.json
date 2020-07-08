@@ -10,7 +10,7 @@
     "watch:server": "nodemon --watch server",
     "start": "node server",
     "test": "jest --noStackTrace --watchAll",
-    "build": "webpack"
+    "build": "webpack && knex migrate:latest"
   },
   "author": "EDA",
   "license": "ISC",
