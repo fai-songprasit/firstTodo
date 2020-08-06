@@ -19,7 +19,7 @@ function saveTask(task, db = connection) {
         task: task.task,
         priority: task.priority,
         completed: task.completed,
-    })
+    }, 'id')
 }
 
 function updateTask(task, id, db = connection) {
