@@ -31,4 +31,5 @@ const List = (props) => {
 const mapStateToProps = globalState => ({
     tasks: globalState.tasks
 })
+
 export default connect(mapStateToProps)(List)

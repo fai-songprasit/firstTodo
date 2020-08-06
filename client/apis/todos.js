@@ -2,10 +2,6 @@ import request from 'superagent'
 
 const todosUrl = '/api/v1/todos/'
 
-//superagent is an API consumer, it uses API to communicate between client side and gets request from server
-//client side requires different protocols for server
-//aresponse.body = actions request on body of webpage
-
 export function getTasks () {
   return request
     .get(todosUrl)
